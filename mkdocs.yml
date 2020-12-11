@@ -1,0 +1,36 @@
+site_name: docs.pivpn.io
+copyright: Copyright &copy; 2020 PiVPN
+theme:
+  icon:
+    repo: fontawesome/brands/github
+  name: material
+  logo: img/pivpnlogo.png
+  favicon: img/favicon.ico
+  palette:
+    primary: blue grey
+
+repo_name: PiVPN
+repo_url: https://github.com/pivpn/pivpn
+edit_uri: https://pivpn/docs/master/docs
+
+markdown_extensions:
+  - admonition
+
+nav:
+  - index.md
+  - install.md
+  - openvpn.md
+  - wireguard.md
+  - faq.md
+  - projects.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/pivpn/pivpn
+    - icon: fontawesome/brands/reddit
+      link: https://www.reddit.com/r/pivpn/
+    - icon: fontawesome/solid/globe
+      link: https://pivpn.io
+    - icon: fontawesome/solid/heartbeat
+      link: https://status.pivpn.io

@@ -1,0 +1,38 @@
+language: python
+
+services:
+  - docker
+
+stages:
+  - test-pr
+  - name: "Build&Publish"
+    if: type = push
+
+branches:
+  only:
+    - test
+    - master
+
+jobs:
+  include:
+    - stage: test-pr
+      name: "Test PR"
+      if: type = pull_request
+      before_script:
+        - docker login -u $dockeruser -p $dockerpass
+      install:
+        - pip install mkdocs-material
+      script:
+        - mkdocs build
+
+    - stage: "Build&Publish"
+      name: "Build&Deploy" 
+      if: type = push
+      before_script:
+        - docker login -u $dockeruser -p $dockerpass
+      install:
+        - pip install mkdocs-material
+      script:
+        - mkdocs build
+        - docker build -t pivpn/docs:$tag .
+        - docker push pivpn/docs:$tag
