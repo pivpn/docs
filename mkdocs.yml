@@ -23,6 +23,7 @@ nav:
   - wireguard.md
   - faq.md
   - projects.md
+  - guides/dynamic-dns.md
 
 extra:
   social:
