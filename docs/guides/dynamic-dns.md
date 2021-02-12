@@ -1,4 +1,4 @@
-title: Dynamic DNS
+title: Dynamic DNS with DuckDNS
 summary: Setting up a dynamic dns so that your wireguard always connects.
 Authors: chriscn
 
@@ -10,7 +10,7 @@ The solution comes through [Dynamic DNS](https://en.wikipedia.org/wiki/Dynamic_D
 There are several DynamicDNS providers, some free some not. This tutorial will cover [DuckDNS](https://www.duckdns.org/) however the same principles can apply to other providers. 
 
 ## DuckDNS
-1. Head to [DuckDNS](https://www.duckdns.org/) and Sign In with an account. I used GitHub.
+1. Head to [DuckDNS](https://www.duckdns.org/) and Sign In with an account.
 2. Head to [DuckDNS/Subdomains](https://www.duckdns.org/domains) and register a subdomain name. It can be whatever you like.
 3. Head to [DuckDNS/Install](https://www.duckdns.org/install.jsp) and select **Linux CRON** and your domain name and follow the install instructions; you can run this on the same Raspberry Pi that you run PiVPN. You should end up with a file and cronjob running at `~/duckdns/duck.sh`
 4. Once you've installed the script you need to change your configuration files and your setup variables.
