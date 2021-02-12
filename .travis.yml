@@ -7,11 +7,7 @@ stages:
   - test-pr
   - name: "Build&Publish"
     if: type = push
-
-branches:
-  only:
-    - test
-    - master
+    if: branch = master
 
 jobs:
   include:
@@ -19,20 +15,22 @@ jobs:
       name: "Test PR"
       if: type = pull_request
       before_script:
-        - docker login -u $dockeruser -p $dockerpass
+        - echo $dockerpass | docker login -u $dockeruser --password-stdin
       install:
         - pip install mkdocs-material
       script:
         - mkdocs build
+        - docker build -t $prrepo:$TRAVIS_PULL_REQUEST .
+        - docker push $prrepo:$TRAVIS_PULL_REQUEST
 
     - stage: "Build&Publish"
       name: "Build&Deploy" 
       if: type = push
       before_script:
-        - docker login -u $dockeruser -p $dockerpass
+        - echo $dockerpass | docker login -u $dockeruser --password-stdin
       install:
         - pip install mkdocs-material
       script:
         - mkdocs build
-        - docker build -t pivpn/docs:$tag .
-        - docker push pivpn/docs:$tag
+        - docker build -t $docsrepo:$tag .
+        - docker push $docsrepo:$tag
