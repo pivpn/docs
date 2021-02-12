@@ -6,7 +6,6 @@ services:
 stages:
   - test-pr
   - name: "Build&Publish"
-    if: type = push
     if: branch = master
 
 jobs:
