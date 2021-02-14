@@ -8,6 +8,9 @@ theme:
   favicon: img/favicon.ico
   palette:
     primary: blue grey
+  features:
+    - navigation.sections
+    - navigation.expand
 
 repo_name: PiVPN
 repo_url: https://github.com/pivpn/pivpn
@@ -23,7 +26,8 @@ nav:
   - wireguard.md
   - faq.md
   - projects.md
-  - guides/dynamic-dns.md
+  - Guides:
+    - Dynamic DNS: guides/dynamic-dns.md
 
 extra:
   social:
