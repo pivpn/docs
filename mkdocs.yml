@@ -9,7 +9,6 @@ theme:
   palette:
     primary: blue grey
   features:
-    - navigation.sections
     - navigation.expand
 
 repo_name: PiVPN
