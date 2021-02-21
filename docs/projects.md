@@ -35,3 +35,4 @@ A secure docker container that sets up PiVPN and SSH.
 The foundation for all open-source VPN projects.
 * [WireGuard](https://www.wireguard.com/)
 *An extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography.*
+* [PiVPN Web](https://github.com/WeeJeWel/pivpn-web) A web-based management UI for PiVPN WireGuard installations.
