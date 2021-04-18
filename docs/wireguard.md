@@ -61,7 +61,9 @@ Use a program like WinSCP or Cyberduck. Note that you may need administrator per
 
 ### Mac/Linux
 
-Open the Terminal app and copy the config from the Raspberry Pi using `scp pi-user@ip-of-your-raspberry:configs/whatever.conf`. The file will be downloaded in the current working directory, which usually is the home folder of your PC.
+Open the Terminal app and copy the config from the Raspberry Pi to a target directory on your local machine:
+
+`scp pi-user@ip-of-your-raspberry:configs/whatever.conf path/to/target`.
 
 ### Android / iOS
 
