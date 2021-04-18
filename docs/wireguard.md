@@ -103,7 +103,7 @@ If you installed PiVPN **before** pi-hole:
 
 1. Edit the PiVPN configuration with `/etc/pivpn/wireguard/setupVars.conf`
 2. Remove the `pivpnDNS1=[...]` and `pivpnDNS2=[...]` lines
-3. Add this line `pivpnDNS1=192.168.23.211` to point clients to the PiVPN IP
+3. Add this line `pivpnDNS1=192.168.23.211` to point clients to the Pi-hole IP
 4. Save the file and exit
 5. Run `pihole -a -i local` to tell Pi-hole to listen on all interfaces
 
