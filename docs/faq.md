@@ -16,7 +16,7 @@ PiVPN runs at least on the following boards:
 
 As per [Github Issue #373 on Octpi](https://github.com/guysoft/OctoPi/issues/373) OctoPi doesn't play well with PiVPN installer as they use a git wrapper that blocks it from running as root user. To disable the git wrapper please do: `sudo rm /root/bin/git`
 
-## How do why know what changed in stable/master branch?
+## How do I know what changed in stable/master branch?
 
 To know what has changed in the master branch read: [LatestUpdate.md](https://github.com/pivpn/pivpn/blob/master/LatestUpdate.md)
 
@@ -142,7 +142,7 @@ If you are already using a DDNS, and thus `pivpnHOST` contains your domain name,
 
 ### Packet capture
 
-We will use `tcpdump` take a peek into the network interface to see if packets are reaching our Raspberry Pi.
+We will use `tcpdump` to take a peek into the network interface to see if packets are reaching our Raspberry Pi.
 
 First off, if you want to test the connection using your smartphone as a client, make sure to use MOBILE DATA, do not test from the same network where the Raspberry Pi is located. If you want to use a PC, connect to the internet via TETHERING/HOTSPOT.
 
