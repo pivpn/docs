@@ -16,7 +16,7 @@ PiVPN runs at least on the following boards:
 
 As per [Github Issue #373 on Octpi](https://github.com/guysoft/OctoPi/issues/373) OctoPi doesn't play well with PiVPN installer as they use a git wrapper that blocks it from running as root user. To disable the git wrapper please do: `sudo rm /root/bin/git`
 
-## How do why know what changed in stable/master branch?
+## How do I know what changed in stable/master branch?
 
 To know what has changed in the master branch read: [LatestUpdate.md](https://github.com/pivpn/pivpn/blob/master/LatestUpdate.md)
 
