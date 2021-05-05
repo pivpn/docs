@@ -96,7 +96,7 @@ Run `pivpn -qr` on the PiVPN server to generate a QR code of your config, downlo
 
 ## Pi-hole with PiVPN
 
-You can safely install PiVPN on the same Raspberry Pi as your Pi-hole install, and point your VPN clients to the IP of your Pi-hole so they get ad blocking, etc.
+You can safely install PiVPN on the same Raspberry Pi as your Pi-hole install, and point your VPN clients to the IP of your Pi-hole so they get ad blocking, etc. (replace `192.168.23.211` with the LAN IP of your Raspberry Pi).
 
 !!! note
     if you install PiVPN **after** Pi-hole, your existing Pi-hole installation will be detected and the script will ask if you want to use it as the DNS for the VPN, so you won't need to go through the following steps.
@@ -105,7 +105,7 @@ If you installed PiVPN **before** pi-hole:
 
 1. Edit the PiVPN configuration with `/etc/pivpn/wireguard/setupVars.conf`
 2. Remove the `pivpnDNS1=[...]` and `pivpnDNS2=[...]` lines
-3. Add this line `pivpnDNS1=192.168.23.211` to point clients to the PiVPN IP
+3. Add this line `pivpnDNS1=192.168.23.211` to point clients to the Pi-hole IP
 4. Save the file and exit
 5. Run `pihole -a -i local` to tell Pi-hole to listen on all interfaces
 
