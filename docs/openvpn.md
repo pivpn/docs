@@ -29,7 +29,7 @@ home directory.
 If you need to create a client certificate that is not password protected (IE for use on a router),
 then you can use the 'pivpn add nopass' option to generate that.
 
-### Revoking a client certificatae
+### Revoking a client certificate
 
 `pivpn revoke`
 
@@ -68,7 +68,7 @@ Use a program like WinSCP or Cyberduck. Note that you may need administrator per
 
 Open the Terminal app and copy the config from the Raspberry Pi to a target directory on your local machine:
 
-`scp pi-user@ip-of-your-raspberry:ovpns/whatever.ovpn path/to/target`.
+`scp pi-user@ip-of-your-raspberry:ovpns/whatever.ovpn path/to/target`
 
 ### Android
 
@@ -127,7 +127,7 @@ Note that if you install PiVPN after Pi-hole, your existing Pi-hole installation
 ## Changing the public IP/DNS
 You will need to change `/etc/openvpn/easy-rsa/pki/Default.txt` and your `.ovpn` files if you have already generated them.
 
-## Blocking internet access
+## Blocking Internet access
 
 If you want clients to have access to your network but not route internet traffic through VPN, edit `/etc/openvpn/server.conf` and replace:
 
@@ -135,7 +135,7 @@ If you want clients to have access to your network but not route internet traffi
 
  **OBS:** Replace `192.168.23.0` and `255.255.255.0` with the correct values for your network
 
- Restart the openvpn service: `sudo systemctl restart openvpn`.
+ Restart the openvpn service: `sudo systemctl restart openvpn`
 
 ## Migrating PiVPN & OpenVPN
 

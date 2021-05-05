@@ -4,23 +4,34 @@ services:
   - docker
 
 stages:
-  - test-pr
+  - test
+  - name: "BuildTest"
+    if: branch = test
   - name: "Build&Publish"
     if: branch = master
 
 jobs:
   include:
-    - stage: test-pr
-      name: "Test PR"
+    - stage: test
+      name: "Test"
       if: type = pull_request
+      install:
+        - pip install mkdocs-material
+      script:
+        - mkdocs build
+
+    - stage: "BuildTest"
+      name: "BuildTest"
+      if: type = push
       before_script:
         - echo $dockerpass | docker login -u $dockeruser --password-stdin
       install:
         - pip install mkdocs-material
       script:
         - mkdocs build
-        - docker build -t $prrepo:$TRAVIS_PULL_REQUEST .
-        - docker push $prrepo:$TRAVIS_PULL_REQUEST
+        - docker build -t $prrepo:$tag .
+        - docker push $prrepo:$tag
+
 
     - stage: "Build&Publish"
       name: "Build&Deploy" 
