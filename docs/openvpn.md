@@ -155,6 +155,7 @@ example using scp on linux:
 **OBS:** Please be aware of the difference between `/etc/` and `etc/`!  
 /etc with the starting slash is a system directory  
 etc/ without starting slash and tailing slash means its a directory in your current working dir.  
+Note: When using wireguard, replace `openvpn` with `wireguard`
 
 ## Resolving local hostnames
 
