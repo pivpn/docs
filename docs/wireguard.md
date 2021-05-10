@@ -94,6 +94,11 @@ Run `wg-quick down whatever` to deactivate the tunnel.
 
 Run `pivpn -qr` on the PiVPN server to generate a QR code of your config, download the Wireguard app [Android link](https://play.google.com/store/apps/details?id=com.wireguard.android) / [iOS link](https://apps.apple.com/it/app/wireguard/id1441195209), click the '+' sign and scan the QR code with your phone's camera. Flip the switch to activate the tunnel.
 
+!!! note
+    If you are having deformed or weirdly formated qrcodes, please try using `pivpn -qr -a256` to generate a qrcode in ansi256, this will generate a substantially bigger qrcode but plays nicely when using other types of fonts on your terminal.
+
+
+
 ## Pi-hole with PiVPN
 
 You can safely install PiVPN on the same Raspberry Pi as your Pi-hole install, and point your VPN clients to the IP of your Pi-hole so they get ad blocking, etc. (replace `192.168.23.211` with the LAN IP of your Raspberry Pi).
