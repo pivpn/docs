@@ -179,12 +179,12 @@ Per default Wireguard connects on-demand which is fine for most situations.
 It's also the recommended configuration for mobile devices because of energy consumption.
 
 But it might be useful to keep the Wireguard connection up to avoid certain connection
-issues that can occur e.g. when NAT is beeing used which forces disconnections.
+issues that can occur e.g. when NAT is being used which forces undesired disconnections.
 Keeping the connection up can also reduce the reconnection time a bit, even though
 Wireguard usually connects in under a second.
 
-A good value of thumb is 21 seconds, which is related to certain NAT connection time windows.
-You may also put a lower number if required.
+A good value of thumb for this setting is 21 seconds, which is related to certain 
+NAT connection time windows. You may also put a lower number if required.
 
 The WireGuard client config file required the config parameter 
 `PersistentKeepalive = 21` in the `[Peer]` section.
