@@ -95,7 +95,7 @@ Run `wg-quick down whatever` to deactivate the tunnel.
 Run `pivpn -qr` on the PiVPN server to generate a QR code of your config, download the Wireguard app [Android link](https://play.google.com/store/apps/details?id=com.wireguard.android) / [iOS link](https://apps.apple.com/it/app/wireguard/id1441195209), click the '+' sign and scan the QR code with your phone's camera. Flip the switch to activate the tunnel.
 
 !!! note
-    If you are having deformed or weirdly formated qrcodes, please try using `pivpn -qr -a256` to generate a qrcode in ansi256, this will generate a substantially bigger qrcode but plays nicely when using other types of fonts on your terminal.
+    If you are having deformed or weirdly formatted qrcodes, please try using `pivpn -qr -a256` to generate a qrcode in ansi256, this will generate a substantially bigger qrcode but plays nicely when using other types of fonts on your terminal.
 
 
 
@@ -141,7 +141,7 @@ Replace the following line in your client configuration: `AllowedIPs = 0.0.0.0/0
 
 Backup your server with `pivpn -bk`
 copy the tar archive to your computer.
-example using scp on linux:
+example using scp on Linux:
 
 `scp <user>@<server>:~/pivpnbackup/<archivename> <path/on/local>`
 
@@ -195,7 +195,6 @@ the `/etc/pivpn/wireguard/setupVars.conf` file (`pivpnPERSISTENTKEEPALIVE=21`).
 You may update already existing profiles with `pivpn -up` ("Updates PiVPN Scripts").
 
 ## Updatinging Wireguard
-
 
 !!! note
     if you installed PiVPN on or after March 17th 2020 WireGuard will be upgraded via the package manager (APT)
