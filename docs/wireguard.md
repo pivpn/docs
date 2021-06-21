@@ -183,18 +183,15 @@ issues that can occur e.g. when NAT is being used which forces undesired disconn
 Keeping the connection up can also reduce the reconnection time a bit, even though
 Wireguard usually connects in under a second.
 
-A good value of thumb for this setting is 21 seconds, which is related to certain 
-NAT connection time windows. You may also put a lower number if required.
+A good value of thumb for this setting is 25 seconds. You may also put a lower number if required. Setting it to 0 turns the feature off, which is the default. ([Wireguard Quickstart Guide](https://www.wireguard.com/quickstart/#nat-and-firewall-traversal-persistence))
 
 The WireGuard client config file required the config parameter 
-`PersistentKeepalive = 21` in the `[Peer]` section.
+`PersistentKeepalive = 25` in the `[Peer]` section.
 
 This setting will be added automatically to the client config profiles when added to 
-the `/etc/pivpn/wireguard/setupVars.conf` file (`pivpnPERSISTENTKEEPALIVE=21`).
+the `/etc/pivpn/wireguard/setupVars.conf` file (`pivpnPERSISTENTKEEPALIVE=25`).
 
-You may update already existing profiles with `pivpn -up` ("Updates PiVPN Scripts").
-
-## Updatinging Wireguard
+## Updating Wireguard
 
 !!! note
     if you installed PiVPN on or after March 17th 2020 WireGuard will be upgraded via the package manager (APT)
