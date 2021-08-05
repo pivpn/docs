@@ -173,8 +173,25 @@ Example:
 192.168.1.5   DogPC
 ```
 
-## Updating Wireguard
+## Keep Wireguard connected / Connection issues / PersistentKeepalive
 
+Per default Wireguard connects on-demand which is fine for most situations.
+It's also the recommended configuration for mobile devices because of energy consumption.
+
+But it might be useful to keep the Wireguard connection up to avoid certain connection
+issues that can occur e.g. when NAT is being used which forces undesired disconnections.
+Keeping the connection up can also reduce the reconnection time a bit, even though
+Wireguard usually connects in under a second.
+
+A good value of thumb for this setting is 25 seconds. You may also put a lower number if required. Setting it to 0 turns the feature off, which is the default. ([Wireguard Quickstart Guide](https://www.wireguard.com/quickstart/#nat-and-firewall-traversal-persistence))
+
+The WireGuard client config file required the config parameter 
+`PersistentKeepalive = 25` in the `[Peer]` section.
+
+This setting will be added automatically to the client config profiles when added to 
+the `/etc/pivpn/wireguard/setupVars.conf` file (`pivpnPERSISTENTKEEPALIVE=25`).
+
+## Updating Wireguard
 
 !!! note
     if you installed PiVPN on or after March 17th 2020 WireGuard will be upgraded via the package manager (APT)
