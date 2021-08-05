@@ -21,8 +21,8 @@ We recommend using the latest Raspbian Lite image on a Raspberry Pi in your home
 However, the scripts do try to detect different distributions and make adjustments accordingly.  
 They should work on the majority of Ubuntu and Debian based distributions including those using UFW by default instead of raw iptables.  
 
-This scripts primary mission in life is to allow a user to have a home VPN for as cost effective as possible and without being a technical wizard.  
-Hence the design of pivpn to work on a Raspberry Pi ($35) and then one command installer.  
+This script's primary mission in life is to allow a user to have a home VPN for as cost effective as possible and without being a technical wizard.  
+Hence the design of PiVPN to work on a Raspberry Pi ($35) and then one command installer.  
 Followed by easy management of the VPN thereafter with the 'pivpn' command.  
 That being said...
 
