@@ -25,9 +25,9 @@ jobs:
       env:
         - IMAGE=pivpn/docs
       before_install:
-        - curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash - 
-        - sudo apt-get update
+        - curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash - 
         - sudo apt-get install -y nodejs
+        - node --version
       install:
         - pip install mkdocs-material
         - npm install @semantic-release/github -D

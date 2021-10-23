@@ -1,0 +1,35 @@
+{
+  "name": "docs.pivpn.io",
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "./CHANGELOG.md"
+      }
+    ],
+    ["@semantic-release/github", {
+      "assets": [
+        {"path": "dist/asset.min.css", "label": "CSS distribution"},
+        {"path": "dist/asset.min.js", "label": "JS distribution"}
+      ]
+    }],
+    [
+      "@semantic-release-plus/docker",
+        {
+          "name": "pivpn/docs"
+        }
+    ],
+  ],
+  "devDependencies": {
+    "@semantic-release/gitlab": "^7.0.3",
+    "semantic-release": "^18.0.0"
+  },
+  "release": {
+    "branches": [
+      "master",
+    ]
+  }
+}
+
