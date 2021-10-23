@@ -1,13 +1,12 @@
+os: linux
+dist: focal
 language: python
-
 services:
   - docker
 
 stages:
   - test
-  - name: "BuildTest"
-    if: branch = test
-  - name: "Build&Publish"
+  - name: "release"
     if: branch = master
 
 jobs:
@@ -20,27 +19,24 @@ jobs:
       script:
         - mkdocs build
 
-    - stage: "BuildTest"
-      name: "BuildTest"
+    - stage: "publish"
+      name: "publish" 
       if: type = push
-      before_script:
-        - echo $dockerpass | docker login -u $dockeruser --password-stdin
+      env:
+        - IMAGE=pivpn/docs
+      before_install:
+        - apt update
+        - apt install -y curl
+        - curl -fsSL https://deb.nodesource.com/setup_17.x | bash - 
+        - apt-get install -y nodejs
       install:
         - pip install mkdocs-material
-      script:
-        - mkdocs build
-        - docker build -t $prrepo:$tag .
-        - docker push $prrepo:$tag
-
-
-    - stage: "Build&Publish"
-      name: "Build&Deploy" 
-      if: type = push
+        - npm install @semantic-release/github -D
+        - npm install @semantic-release/changelog -D
+        - npm install @semantic-release-plus/docker -D
       before_script:
-        - echo $dockerpass | docker login -u $dockeruser --password-stdin
-      install:
-        - pip install mkdocs-material
+        - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
       script:
-        - mkdocs build
-        - docker build -t $docsrepo:$tag .
-        - docker push $docsrepo:$tag
+        - docker build -t $IMAGE .
+        - npx semantic-release
+
