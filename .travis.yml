@@ -1,8 +1,8 @@
 os: linux
 dist: focal
-language: python
 services:
   - docker
+language: python
 
 stages:
   - test
@@ -14,6 +14,7 @@ jobs:
     - stage: test
       name: "Test"
       if: type = pull_request
+      language: python
       install:
         - pip install mkdocs-material
       script:
@@ -22,13 +23,11 @@ jobs:
     - stage: "publish"
       name: "publish" 
       if: branch = master
+      language: node_js
+      node_js:
+        - 17
       env:
         - IMAGE=pivpn/docs
-      before_install:
-        - curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash - 
-        - sudo apt-get -q update
-        - sudo apt-get install -y nodejs
-        - node --version
       install:
         - pip install mkdocs-material
         - npm install @semantic-release/github -D
@@ -39,6 +38,7 @@ jobs:
         - echo $PWD
         - ls -la
       script:
+        - mkdocs build
         - docker build -t $IMAGE .
-        - npx semantic-release
+#       - npx semantic-release
 
