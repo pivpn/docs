@@ -14,7 +14,6 @@ jobs:
     - stage: test
       name: "Test"
       if: type = pull_request
-      language: python
       install:
         - pip install mkdocs-material
       script:
@@ -35,8 +34,6 @@ jobs:
         - npm install @semantic-release-plus/docker -D
       before_script:
         - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-        - echo $PWD
-        - ls -la
       script:
         - mkdocs build
         - docker build -t $IMAGE .
