@@ -7,7 +7,7 @@ services:
 stages:
   - test
   - name: "release"
-    if: branch = master
+    if: type = push
 
 jobs:
   include:
@@ -21,7 +21,7 @@ jobs:
 
     - stage: "publish"
       name: "publish" 
-      if: type = push
+      if: branch = master
       env:
         - IMAGE=pivpn/docs
       before_install:
