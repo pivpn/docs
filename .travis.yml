@@ -26,6 +26,7 @@ jobs:
         - IMAGE=pivpn/docs
       before_install:
         - curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash - 
+        - sudo apt-get -q update
         - sudo apt-get install -y nodejs
         - node --version
       install:
