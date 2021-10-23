@@ -40,5 +40,5 @@ jobs:
       script:
         - mkdocs build
         - docker build -t $IMAGE .
-#       - npx semantic-release
+        - npx semantic-release
 
