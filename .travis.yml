@@ -35,6 +35,8 @@ jobs:
         - npm install @semantic-release-plus/docker -D
       before_script:
         - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+        - echo $PWD
+        - ls -la
       script:
         - docker build -t $IMAGE .
         - npx semantic-release
