@@ -18,7 +18,7 @@ As per [Github Issue #373 on Octpi](https://github.com/guysoft/OctoPi/issues/373
 
 ## How do I know what changed in stable/master branch?
 
-To know what has changed in the master branch read: [LatestUpdate.md](https://github.com/pivpn/pivpn/blob/master/LatestUpdate.md)
+To know what has changed in the master branch read: [CHANGELOG.md](https://github.com/pivpn/pivpn/blob/master/CHANGELOG.md)
 
 
 ## My ISP doesn't give me a static external IP address and my server IP address keeps changing!
