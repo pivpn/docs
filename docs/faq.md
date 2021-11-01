@@ -10,7 +10,7 @@ PiVPN runs at least on the following boards:
 * Raspberry Pi models (1/2/3/4/Zero) running Raspbian Stretch, Raspberry Pi OS Buster (32-bit), Ubuntu Server 20.04 Focal Fossa (32-bit and 64-bit).
 * All SBC's running DietPi.
     * Odroid C1, Odroid C2 (arm64), Odroid XU3/4, Pine A64, NanoPi NEO, NanoPi NEO Air, NanoPi M1.
-* Most servers running a Debian or Ubuntu based distro.
+* Most x86_64 (Intel and AMD) servers running a Debian or Ubuntu based distro.
 
 ## What About Octopi?
 
