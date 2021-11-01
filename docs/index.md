@@ -72,22 +72,46 @@ The script will also make some changes to your system to allow it to forward int
 
 After the installation is complete you can use the command `pivpn` to manage the server. Have a look at the [OpenVPN](https://github.com/pivpn/pivpn/wiki/OpenVPN) or [WireGuard](https://github.com/pivpn/pivpn/wiki/WireGuard) wiki for some example commands, connection instructions, FAQs, [troubleshooting steps](https://github.com/pivpn/pivpn/wiki/FAQ#how-do-i-troubleshoot-connection-issues).
 
-## Feedback & support
+## Feedback & Support
 
 PiVPN is purely community driven, and we are interested in making this script work for as many people as possible, we welcome any feedback on your experience.
 Please be respectful and be aware that this is maintained with our free time!
 
-for community support or general questions.
-Feel free to post on our subreddit <https://www.reddit.com/r/pivpn/>
-You can also join #pivpn on [libera.chat](https://libera.chat) IRC network
+### General Guidelines
 
-For code related issues, code contributions, feature requests, feel free to open an issue here at github.
-We will classify the issues the best we can to keep things sorted.
+* Please check our documentation
+* Please carefully read the [contributors' guide](https://github.com/pivpn/pivpn/blob/master/CONTRIBUTING.md)
+* Please read the pinned posts on [Github Discussions](https://github.com/pivpn/pivpn/discussions)
+* Please use Github [Github Discussions](https://github.com/pivpn/pivpn/discussions) instead of Issues
+* Please provide as much information as you can
+  * Fill the adequate template and provide all the requested data
+  * If you can't find the adequate template, please ask first in any of our official channels
+* The Github issues page is not intended for general support usage or feature requests
+* PiVPN team may close any Discussion/Issue without any warning if they don't follow the Guidelines
+
+### Official PiVPN Community support
+
+If you have any questions or need any support, feel free to reach out at any of the following platforms
+
+* [Github Discussions](https://github.com/pivpn/pivpn/discussions)
+* Reddit at [r/pivpn](https://www.reddit.com/r/pivpn/)
+* \#pivpn at [libera.chat](https://libera.chat) IRC network
+* \#pivpn:matrix.org at [matrix.org](https://matrix.org)
+
+
+### Feature requests
+
+Feature requests are very welcome, please do so at:
+
+* [Feature requests](https://github.com/pivpn/pivpn/discussions/categories/feature-requests)
+
+### Bug reports
+
+* [Open Github Issue](https://github.com/pivpn/pivpn/issues)
 
 !!! Note
-    Before opening an issue or a Pull Request, please make sure you read carefully the [contributors' guide](https://github.com/pivpn/pivpn/blob/master/CONTRIBUTING.md) or the presented Issue template, they are there to help both us and you!
-
-    Any incomplete Issue or Pull Request might be closed without any warning.
+    Because it didn't work doesn't mean its a bug!
+    please make sure you have read all the documentation and you have reached out through the official channels! before claiming a bug!
 
 ## contributions
 
@@ -95,10 +119,12 @@ PiVPN is not taking donations at this time but if you want to show your apprecia
 
 Contributions can come in all kinds of different ways and you don't need to be a developer to be able to help out, here are some ways you can help out:
 
-* Please check the current [issues](https://github.com/pivpn/pivpn/issues) to see where you can help.
-* help improving [documentation](https://github.com/pivpn/docs), either with new content or improving the existing writing.
-* Testing on other platforms or on existing ones.
-* If you have any feature ideas or requests, or are interested in adding your ideas to, testing it on other platforms, please comment or leave a pull request.
+* Please check the current [issues](https://github.com/pivpn/pivpn/issues) and [discussions](https://github.com/pivpn/pivpn/discussions)
+to see where you can help.
+* Help improving [documentation](https://github.com/pivpn/docs), either with new content or improving the existing writing.
+* Testing!! Run pivpn in different ways, different systems, different configurations and let us know if you find something!
+* Assisting other users in any of our official channels is also very welcomed
+
 
 Still if you have found this tool to be useful and want to Donate instead, then consider the following sources.
 
