@@ -1,8 +1,10 @@
 os: linux
 dist: focal
+language: python
+python:
+  - "3.9"
 services:
   - docker
-language: python
 
 stages:
   - test
@@ -14,25 +16,31 @@ jobs:
     - stage: test
       name: "Test"
       if: type = pull_request
+      before_install:
+        - python -V
       install:
         - pip install mkdocs-material
+      before_script:
+        - mkdocs --version
       script:
         - mkdocs build
 
     - stage: "publish"
       name: "publish" 
       if: branch = master
-      language: node_js
-      node_js:
-        - 17
       env:
         - IMAGE=pivpn/docs
+      before_install:
+        - nvm install 17
+        - python -V
+        - node -v
       install:
         - pip install mkdocs-material
         - npm install @semantic-release/github -D
         - npm install @semantic-release/changelog -D
         - npm install @semantic-release-plus/docker -D
       before_script:
+        - mkdocs --version
         - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
       script:
         - mkdocs build
