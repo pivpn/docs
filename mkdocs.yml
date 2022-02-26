@@ -37,5 +37,5 @@ extra:
       link: https://www.reddit.com/r/pivpn/
     - icon: fontawesome/solid/globe
       link: https://pivpn.io
-    - icon: fontawesome/solid/heartbeat
+    - icon: fontawesome/solid/heart-pulse
       link: https://status.pivpn.io
