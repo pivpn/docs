@@ -41,12 +41,41 @@ If not specified, `IPv4addr` and `IPv4gw` default to the current network setting
 
 The options provided must make sense in relation to each other, for example you can't use `TWO_POINT_FOUR=1` with `pivpnENCRYPT=2048`.
 
+### To install from custom git url and branch (for DEV)
+
+This is inteded to be used when testing changes during
+development and **not** for standard installations.
+Without this the script will always checkout the master branch.
+
+- Git repo can be pivpn or any other git repo (e.g. a fork).
+- Git branch can be specified as required
+
+#### Syntax
+
+```shell
+git clone < customgitrepourl >
+bash pivpn/auto_install/install.sh --giturl < customgitrepourl > --gitbranch < customgitbranch >
+```
+
+#### Example
+```shell
+git clone https://github.com/userthatforked/pivpn.git
+bash pivpn/auto_install/install.sh --giturl https://github.com/userthatforked/pivpn.git --gitbranch myfeaturebranch
+```
+
+The unattended setup config also supports a custom giturl and branch.
+
+```shell
+pivpnGitUrl="https://github.com/userthatforked/pivpn.git"
+pivpnGitBranch="myfeaturebranch"
+```
+
 ### Updating pivpn
 
-To update PiVPN management scripts simply run `pivpn update`
+VPN protocols are updated via system package manager
 
 !!! note
-    This will not update The VPN Protocol, Read [Updating OpenVPN](openvpn.md#updating-openvpn) or [Updating Wireguard](wireguard.md#updating-wireguard) for information on how to update the VPN protocol.
+    Read [Updating OpenVPN](openvpn.md#updating-openvpn) or [Updating Wireguard](wireguard.md#updating-wireguard) for information on how to update the VPN protocol.
 
 ## Uninstall
 
