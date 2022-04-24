@@ -41,7 +41,7 @@ If not specified, `IPv4addr` and `IPv4gw` default to the current network setting
 
 The options provided must make sense in relation to each other, for example you can't use `TWO_POINT_FOUR=1` with `pivpnENCRYPT=2048`.
 
-### To install from custom git url and branch (for DEV)
+## To install from custom git url and branch (for DEV)
 
 This is inteded to be used when testing changes during
 development and **not** for standard installations.
