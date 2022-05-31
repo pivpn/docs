@@ -136,7 +136,7 @@ $ curl -s https://checkip.amazonaws.com
 
 Confirmed: `192.0.2.48` is the same as the content of the `pivpnHOST` variable.
 
-If the IP is different, then update the IP using the [OpenVPN](https://github.com/pivpn/pivpn/wiki/OpenVPN#how-do-i-change-the-public-ipdns-name-of-the-pivpn-after-the-install) or [WireGuard](https://github.com/pivpn/pivpn/wiki/WireGuard#how-do-i-change-the-public-ipdns-name-of-the-pivpn-after-the-install) guide. If your IP changes frequently, the norm on most home connections, consider using a [Dynamic DNS](https://github.com/pivpn/pivpn/wiki#my-isp-doesnt-give-me-a-static-external-ip-address-so-my-servers-ip-address-keeps-changing).
+If the IP is different, then update the IP using the [OpenVPN](openvpn.md#changing-the-public-ipdns) or [WireGuard](wireguard.md#changing-the-public-ipdns) guide. If your IP changes frequently, the norm on most home connections, consider using a [Dynamic DNS](faq.md#my-isp-doesnt-give-me-a-static-external-ip-address-and-my-server-ip-address-keeps-changing).
 
 If you are already using a DDNS, and thus `pivpnHOST` contains your domain name, use `dig +short yourdomain.example.com` to check whether the returned IP matches `curl -s https://checkip.amazonaws.com`.
 
