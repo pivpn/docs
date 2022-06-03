@@ -15,7 +15,7 @@ PiVPN can be used to install OpenVPN or Wireguard completely unattended during a
 
 
 
-Configuration file examples can be found here [here](https://github.com/pivpn/pivpn/tree/master/examples)
+Configuration file examples can be found [here](https://github.com/pivpn/pivpn/tree/master/examples)
 
 You can use the following script as an example and adjust the values to suit your needs
 
