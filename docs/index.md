@@ -36,7 +36,7 @@ a Raspberry Pi Model B or later with, an SD or microSD card with Raspbian instal
 a power adapter appropriate to the power needs of your model, and an ethernet cable or wifi
 adapter to connect your Pi to your router or gateway.  
 It is recommended that you use a fresh image of the latest Raspbian Lite from
-the [Raspberry Pi downloads page](https://raspberrypi.org/downloads), but if you don't, be sure to make a backup
+the [Raspberry Pi's downloads page](https://raspberrypi.org/downloads), but if you don't, be sure to make a backup
 image of your existing installation before proceeding.  
 You should also setup your Pi with a static IP address
 but it is not required as the script can do this for you.  
