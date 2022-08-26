@@ -14,7 +14,6 @@ PiVPN Documentation is powered by [MKDocs-Material](https://squidfunk.github.io/
 
 Please refer to [MKDocs Documentation](https://www.mkdocs.org/user-guide/) and [MKDocs-Material Documentation](https://squidfunk.github.io/mkdocs-material/) for more detailed information for information on how to install or more detailed documentation
 
-
 To add a new link on the navigation panel you need to edit the `mkdocs.yml` file in the root of the repo. There is a guide for building the navbar at [mkdocs wiki](https://www.mkdocs.org/user-guide/configuration/#nav)
 
 To add a new document
@@ -23,6 +22,7 @@ To add a new document
 - Create the file using a URL friendly filename.
     EG. `docs/url-friendly.md` or `docs/guides/url-friendly.md`
 - Edit your document using Markdown, there are loads of resources available for the correct syntax.
+
 
 ### Test your changes
 
@@ -37,6 +37,11 @@ When working on this repo, it is advised that you review your changes locally be
 * Commit code `git commit -a`, make sure you add a nice message to your commit
 * Push code to your fork `git push origin master`
 * Make Pull Request
+
+
+### Commit message style
+
+when commiting changes, use [Angular commit message format](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-format). 
 
 ### Deployment
 

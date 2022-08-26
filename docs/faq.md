@@ -5,21 +5,52 @@ summary: Frequently asked questions
 
 ## What boards/OSes does PiVPN support?
 
-PiVPN runs at least on the following boards:
+### PiVPN runs at least on the following hardware
 
-* Raspberry Pi models (1/2/3/4/Zero) running Raspbian Stretch, Raspberry Pi OS Buster (32-bit), Ubuntu Server 20.04 Focal Fossa (32-bit and 64-bit).
-* All SBC's running DietPi.
-    * Odroid C1, Odroid C2 (arm64), Odroid XU3/4, Pine A64, NanoPi NEO, NanoPi NEO Air, NanoPi M1.
-* Most x86_64 (Intel and AMD) servers running a Debian or Ubuntu based distro.
+* Raspberry Pi models (1/2/3/4/Zero) 
+* All SBC's supported by [DietPi](https://dietpi.com/).
+* x86_64 (Intel and AMD) servers 
 
-## What About Octopi?
+### PiVPN Supports the following systems
+
+  * Raspbian and Raspberry PI OS
+    * Stretch
+    * Buster
+    * Bullseye
+  * Ubuntu Server
+    * Bionic Beaver (18.04)
+    * Focal Fossa (20.04)
+    * Jammy Jellyfish (22.04)
+  * [DietPi](https://dietpi.com/)
+  * [Alpine Linux](install.md#alpine)
+
+### What about other Debian / Ubuntu based distributions? 
+
+PiVPN may be able run and install VPN Protocols on any other Debian or Ubuntu based distributions however we do not provide support for them. 
+
+### What about docker? 
+
+Support for docker images is currently experimental and we do not provide any official images or official support. There is no ETA for full support. 
+
+### What About Octopi?
 
 As per [Github Issue #373 on Octpi](https://github.com/guysoft/OctoPi/issues/373) OctoPi doesn't play well with PiVPN installer as they use a git wrapper that blocks it from running as root user. To disable the git wrapper please do: `sudo rm /root/bin/git`
 
-## How do I know what changed in stable/master branch?
+### Can I have Wireguard and OpenVPN at the same time? 
 
-To know what has changed in the master branch read: [CHANGELOG.md](https://github.com/pivpn/pivpn/blob/master/CHANGELOG.md)
+Yes! All you have to do is to run PiVPN installation again. PiVPN will ask you what intend to do and setup everything for you. After the installation is finished all you have to do is to use `pivpn wg [options]` and `pivpn ovpn [options]` to manage each protocol. 
 
+```
+# pivpn help
+::: To pass off to the pivpn command for each protocol
+:::
+::: Usage: pivpn wg  <command> [option]
+::: Usage: pivpn ovpn <command> [option]
+:::
+:::  -h,  help             Show this help dialog
+:::  -u,  uninstall        Uninstall pivpn from your system!
+:::  -bk, backup           Backup VPN configs and user profiles
+```
 
 ## My ISP doesn't give me a static external IP address and my server IP address keeps changing!
 

@@ -2,6 +2,7 @@ title: Installation
 summary: How to install
 Authors: 4s3ti
 
+
 # Installation
 
 ## Method 1
@@ -70,7 +71,47 @@ pivpnGitUrl="https://github.com/userthatforked/pivpn.git"
 pivpnGitBranch="myfeaturebranch"
 ```
 
-### Updating pivpn
+## Alpine
+
+### Requirements
+
+* Bash 
+    * `apk add bash`
+* busybox-initscripts 
+    * `apk add busybox-initscripts`
+* run as root or have sudo installed 
+    * `apk add sudo; echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel`
+
+#### AWS Cloud Images (AMI)
+
+On AWS sudo is is not available by default in the the Alpine AMI'and you should use `doas` to install the required dependencies. 
+
+```
+doas su
+apk add bash
+apk add busybox-initscripts
+apk add sudo
+echo '%wheel ALL=(ALL) ALL' > wheel
+mv wheel /etc/sudoers.d/
+chown root:root /etc/sudoers.d/wheel
+```
+
+## Docker (experimental)
+
+It is currently possible to use PiVPN on Alpine Containers
+
+* The container should meet the [Alpine requirements](#alpine)
+* The container should run with `--cap_add NET_ADMIN` 
+* The container needs to have access to `/sys/fs/cgroup` (`-v /sys/fs/cgroup` or `VOLUME [ "/sys/fs/cgroup" ]` in the Dockerfile)
+
+!!! note
+    This is experimental and we are not providing offical support or images.
+
+    Sharing PiVPN/Wireguard/OpenVPN Images is not advised
+    
+    Feel free to open a [Discussion](https://github.com/pivpn/pivpn/discussions)
+    
+## Updating pivpn
 
 VPN protocols are updated via system package manager
 
