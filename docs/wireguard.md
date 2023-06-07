@@ -135,7 +135,19 @@ New clients you generate will use the new endpoint but you need to manually edit
 
 ## Blocking internet access
 
-Replace the following line in your client configuration: `AllowedIPs = 0.0.0.0/0, ::0/0` with `AllowedIPs = [...], 10.6.0.0/24` where `[...]` is the IP and netmask of your LAN, for example `192.168.23.0/24`. `10.6.0.0/24` is the IP and netmask of the virtual network (same for everyone).
+Replace the following line in your client configuration: `AllowedIPs = 0.0.0.0/0, ::0/0` with `AllowedIPs = <your-lan-ip/netmask>, <wireguard-ipv4/netmask>, <wireguard-ipv6/netmask>`.
+
+- `your-lan-ip/netmask` might be something like `192.168.0.1/24` (check your network settings to confirm);
+- `wireguard-ipv4/netmask` will likely be `10.19.17.0/24`; and 
+- `wireguard-ipv6/netmask` will likely be `fd11:5ee:bad:c0de::/64`.
+
+The final line might look like `AllowedIPs = 192.168.0.1/24, 10.19.17.0/24, fd11:5ee:bad:c0de::/64`.
+
+If your PiVPN installation is older, it’s likely that Wireguard’s IPv4/netmask will be `10.6.0.0/24` instead. To confirm the exact values, check the `/etc/pivpn/wireguard/setupVars.conf` file, paying attention to the values of the `pivpnNET`, `subnetClass`, `pivpnNETv6` and `subnetClassv6` variables.
+
+The client configuration files are located in `/etc/wireguard/configs` and are only readable by the `root` user. After altering the file, `pivpn -qr` will generate QR code containing the altered value of `AllowedIPs`.
+
+To make PiVPN generate split-tunnels by default, alter the value of `ALLOWED_IPS` variable in `/etc/pivpn/wireguard/setupVars.conf` instead. All profiles generated after the change will be of a split-tunnel type.
 
 ## Migrating PiVPN & Wireguard
 
