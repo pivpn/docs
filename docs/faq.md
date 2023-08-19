@@ -211,6 +211,10 @@ listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
 6. Press CTRL-C to stop the capture
 7. Exit the root shell: `exit`
 
+### Tweaking MTU
+
+On some networks, you may see that packets are being exchanged, data transfer occurs in both directions (Rx/Tx) as seen in the WireGuard app or `pivpn -c`, but can't browse the web or connect to servers in the LAN. This is sometimes caused by improper [MTU](https://en.wikipedia.org/wiki/Maximum_transmission_unit). To attempt a fix, start from the default MTU of 1420 and lower the value by 10 until you find the highest that works. The MTU can be changed by adding/editing the `MTU = something` line of the `[Interface]` section of the client `.conf` file, or by changing the MTU section in the WireGuard app on Android and iOS.
+
 ### What to do if I see no packets?
 
 - If you set up PiVPN with ethernet and later switched to wifi, you will have a different IP. Easiest way to fix is to reinstall and pick the new network interface.
