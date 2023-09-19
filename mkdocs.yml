@@ -24,6 +24,7 @@ nav:
   - openvpn.md
   - wireguard.md
   - faq.md
+  - troubleshooting.md
   - projects.md
   - Guides:
     - Dynamic DNS: guides/dynamic-dns.md
