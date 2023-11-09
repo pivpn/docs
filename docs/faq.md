@@ -219,7 +219,7 @@ On some networks, you may see that packets are being exchanged, data transfer oc
 
 - If you set up PiVPN with ethernet and later switched to wifi, you will have a different IP. Easiest way to fix is to reinstall and pick the new network interface.
 - Check if your ISP uses Carrier-grade NAT (check online). With CGNAT, your router gets a private IP, making port forwarding ineffective. This is mostly the norm if your router connects via 4G/LTE. If that's the case, you need to ask the ISP for a public IP.
-- If you see packets coming, but no response from the Pi, it may indicate routing issues, attempts to block the connection (on either side), or poor connectivity. In all cases, try to connect from a different network.
+- If you see packets coming to the Pi, but no response to the smartphone, it may indicate routing issues, attempts to block the connection (on either side), poor connectivity. In all cases, try to connect from a different network. It may also indicate misconfigured keys though this shouldn't happen with the official scripts.
 - If you have multiple chained routers, then you need to configure multiple port forwardings. Example: `(192.0.2.48) ISP router (192.168.1.1)` ---> `(192.168.1.2) Own router (192.168.23.1)` ---> `(192.168.23.211) Raspberry Pi`. Given that, on the ISP router port forward 1194 udp to 192.168.1.2 and on your own router port forward 1194 UDP to 192.168.23.211.
 - You may have misconfigured firewall rules on your Pi, open an issue and add the output of `sudo iptables -S` and `sudo iptables -t nat -S`.
 
