@@ -85,6 +85,8 @@ pivpnGitBranch="myfeaturebranch"
 * run as root or have sudo installed 
     * `apk add sudo; echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel`
 
+Enable the community [repository](https://wiki.alpinelinux.org/wiki/Repositories)
+
 #### AWS Cloud Images (AMI)
 
 On AWS sudo is is not available by default in the the Alpine AMI'and you should use `doas` to install the required dependencies. 
