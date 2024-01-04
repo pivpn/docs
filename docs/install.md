@@ -77,8 +77,11 @@ pivpnGitBranch="myfeaturebranch"
 
 * Bash 
     * `apk add bash`
-* busybox-initscripts 
-    * `apk add busybox-initscripts`
+* busybox openrc initscripts
+    * v3.16 or earlier
+        * `apk add busybox-initscripts`
+    * v3.17+
+        * `apk add busybox-openrc`
 * run as root or have sudo installed 
     * `apk add sudo; echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel`
 
