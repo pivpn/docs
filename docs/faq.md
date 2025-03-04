@@ -7,20 +7,19 @@ summary: Frequently asked questions
 
 ### PiVPN runs at least on the following hardware
 
-* Raspberry Pi models (1/2/3/4/Zero) 
+* Raspberry Pi models (1/2/3/4/5/Zero) 
 * All SBC's supported by [DietPi](https://dietpi.com/).
 * x86_64 (Intel and AMD) servers 
 
 ### PiVPN Supports the following systems
 
   * Raspbian and Raspberry PI OS
-    * Stretch
-    * Buster
     * Bullseye
+    * Bookworm
   * Ubuntu Server
-    * Bionic Beaver (18.04)
     * Focal Fossa (20.04)
     * Jammy Jellyfish (22.04)
+    * Noble Numbat (24.04)
   * [DietPi](https://dietpi.com/)
   * [Alpine Linux](install.md#alpine)
 
