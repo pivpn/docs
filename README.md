@@ -36,12 +36,6 @@ When working on this repo, it is advised that you review your changes locally be
 * Push code to your fork `git push origin master`
 * Make Pull Request
 
-
-### Commit message style
-
-when commiting changes, use [Angular commit message format](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-format). 
-
 ### Deployment
 
 Once changes are merged to master branch, CI Pipeline will run and take care of everything.
-It may take up to 24h until changes are visible on live documentation website.
