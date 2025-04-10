@@ -3,7 +3,7 @@ summary: Setting up a dynamic dns so that your wireguard always connects.
 Authors: chriscn
 
 # Dynamic DNS
-After running PiVPN for a while you may notice that you are unable to connect anymore. This may be due to your Public IP being changed. You then have a dilema, in order to connect to your VPN you need to known the IP; however you can't get that information unless you are on your internal network.  
+After running PiVPN for a while you may notice that you are unable to connect anymore. This may be due to your Public IP being changed. You then have a dilemma, in order to connect to your VPN you need to known the IP; however you can't get that information unless you are on your internal network.  
 
 The solution comes through [Dynamic DNS](https://en.wikipedia.org/wiki/Dynamic_DNS). Which will automatically update an A record on a specific domain name allowing you to always connect.
 
