@@ -6,16 +6,16 @@ summary: PiVPN/Wireguard Specific information
 ## List of commands
 
 ```
--a,  add              Create a client conf profile"
--c,  clients          List any connected clients to the server"
--d,  debug            Start a debugging session if having trouble"
--l,  list             List all clients"
--qr, qrcode           Show the qrcode of a client for use with the mobile app"
--r,  remove           Remove a client"
--h,  help             Show this help dialog"
--u,  uninstall        Uninstall pivpn from your system!"
--up, update           Updates PiVPN Scripts"
--bk, backup           Backup VPN configs and user profiles"
+-a,  add              Create a client conf profile
+-c,  clients          List any connected clients to the server
+-d,  debug            Start a debugging session if having trouble
+-l,  list             List all clients
+-qr, qrcode           Show the qrcode of a client for use with the mobile app
+-r,  remove           Remove a client
+-h,  help             Show this help dialog
+-u,  uninstall        Uninstall pivpn from your system!
+-up, update           Updates PiVPN Scripts
+-bk, backup           Backup VPN configs and user profiles
 ```
 
 ### Creating new client configuration
@@ -29,7 +29,7 @@ You will be prompted to enter a name for your client. Pick anything you like and
 `pivpn remove`
 
 Asks you for the name of the client to remove.  Once you remove a client, it will no longer allow you to use
-the given client config (specifically its public key) to connect.  This is useful for many reasons but some ex:
+the given client config (specifically its public key) to connect.  This is useful for many reasons but one example:
 You have a profile on a mobile phone and it was lost or stolen.  Remove its key and generate a new
 one for your new phone.  Or even if you suspect that a key may have been compromised in any way,
 just remove it and generate a new one.
