@@ -6,16 +6,16 @@ summary: PiVPN/Wireguard Specific information
 ## List of commands
 
 ```
--a,  add              Create a client conf profile"
--c,  clients          List any connected clients to the server"
--d,  debug            Start a debugging session if having trouble"
--l,  list             List all clients"
--qr, qrcode           Show the qrcode of a client for use with the mobile app"
--r,  remove           Remove a client"
--h,  help             Show this help dialog"
--u,  uninstall        Uninstall pivpn from your system!"
--up, update           Updates PiVPN Scripts"
--bk, backup           Backup VPN configs and user profiles"
+-a,  add              Create a client conf profile
+-c,  clients          List any connected clients to the server
+-d,  debug            Start a debugging session if having trouble
+-l,  list             List all clients
+-qr, qrcode           Show the qrcode of a client for use with the mobile app
+-r,  remove           Remove a client
+-h,  help             Show this help dialog
+-u,  uninstall        Uninstall pivpn from your system!
+-up, update           Updates PiVPN Scripts
+-bk, backup           Backup VPN configs and user profiles
 ```
 
 ### Creating new client configuration
@@ -29,7 +29,7 @@ You will be prompted to enter a name for your client. Pick anything you like and
 `pivpn remove`
 
 Asks you for the name of the client to remove.  Once you remove a client, it will no longer allow you to use
-the given client config (specifically its public key) to connect.  This is useful for many reasons but some ex:
+the given client config (specifically its public key) to connect.  This is useful for many reasons but one example:
 You have a profile on a mobile phone and it was lost or stolen.  Remove its key and generate a new
 one for your new phone.  Or even if you suspect that a key may have been compromised in any way,
 just remove it and generate a new one.
@@ -135,7 +135,19 @@ New clients you generate will use the new endpoint but you need to manually edit
 
 ## Blocking internet access
 
-Replace the following line in your client configuration: `AllowedIPs = 0.0.0.0/0, ::0/0` with `AllowedIPs = [...], 10.6.0.0/24` where `[...]` is the IP and netmask of your LAN, for example `192.168.23.0/24`. `10.6.0.0/24` is the IP and netmask of the virtual network (same for everyone).
+Replace the following line in your client configuration: `AllowedIPs = 0.0.0.0/0, ::0/0` with `AllowedIPs = <your-lan-ip/netmask>, <wireguard-ipv4/netmask>, <wireguard-ipv6/netmask>`.
+
+- `your-lan-ip/netmask` might be something like `192.168.0.1/24` (check your network settings to confirm);
+- `wireguard-ipv4/netmask` will likely be `10.19.17.0/24`; and 
+- `wireguard-ipv6/netmask` will likely be `fd11:5ee:bad:c0de::/64`.
+
+The final line might look like `AllowedIPs = 192.168.0.1/24, 10.19.17.0/24, fd11:5ee:bad:c0de::/64`.
+
+If your PiVPN installation is older, it’s likely that Wireguard’s IPv4/netmask will be `10.6.0.0/24` instead. To confirm the exact values, check the `/etc/pivpn/wireguard/setupVars.conf` file, paying attention to the values of the `pivpnNET`, `subnetClass`, `pivpnNETv6` and `subnetClassv6` variables.
+
+The client configuration files are located in `/etc/wireguard/configs` and are only readable by the `root` user. After altering the file, `pivpn -qr` will generate QR code containing the altered value of `AllowedIPs`.
+
+To make PiVPN generate split-tunnels by default, alter the value of `ALLOWED_IPS` variable in `/etc/pivpn/wireguard/setupVars.conf` instead. All profiles generated after the change will be of a split-tunnel type.
 
 ## Migrating PiVPN & Wireguard
 

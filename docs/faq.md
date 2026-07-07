@@ -5,21 +5,51 @@ summary: Frequently asked questions
 
 ## What boards/OSes does PiVPN support?
 
-PiVPN runs at least on the following boards:
+### PiVPN runs at least on the following hardware
 
-* Raspberry Pi models (1/2/3/4/Zero) running Raspbian Stretch, Raspberry Pi OS Buster (32-bit), Ubuntu Server 20.04 Focal Fossa (32-bit and 64-bit).
-* All SBC's running DietPi.
-    * Odroid C1, Odroid C2 (arm64), Odroid XU3/4, Pine A64, NanoPi NEO, NanoPi NEO Air, NanoPi M1.
-* Most x86_64 (Intel and AMD) servers running a Debian or Ubuntu based distro.
+* Raspberry Pi models (1/2/3/4/5/Zero) 
+* All SBC's supported by [DietPi](https://dietpi.com/).
+* x86_64 (Intel and AMD) servers 
 
-## What About Octopi?
+### PiVPN Supports the following systems
+
+  * Raspbian and Raspberry PI OS
+    * Bullseye
+    * Bookworm
+  * Ubuntu Server
+    * Focal Fossa (20.04)
+    * Jammy Jellyfish (22.04)
+    * Noble Numbat (24.04)
+  * [DietPi](https://dietpi.com/)
+  * [Alpine Linux](install.md#alpine)
+
+### What about other Debian / Ubuntu based distributions? 
+
+PiVPN may be able run and install VPN Protocols on any other Debian or Ubuntu based distributions however we do not provide support for them. 
+
+### What about docker? 
+
+Support for docker images is currently experimental and we do not provide any official images or official support. There is no ETA for full support. 
+
+### What About Octopi?
 
 As per [Github Issue #373 on Octpi](https://github.com/guysoft/OctoPi/issues/373) OctoPi doesn't play well with PiVPN installer as they use a git wrapper that blocks it from running as root user. To disable the git wrapper please do: `sudo rm /root/bin/git`
 
-## How do I know what changed in stable/master branch?
+### Can I have Wireguard and OpenVPN at the same time? 
 
-To know what has changed in the master branch read: [CHANGELOG.md](https://github.com/pivpn/pivpn/blob/master/CHANGELOG.md)
+Yes! All you have to do is to run PiVPN installation again. PiVPN will ask you what intend to do and setup everything for you. After the installation is finished all you have to do is to use `pivpn wg [options]` and `pivpn ovpn [options]` to manage each protocol. 
 
+```
+# pivpn help
+::: To pass off to the pivpn command for each protocol
+:::
+::: Usage: pivpn wg  <command> [option]
+::: Usage: pivpn ovpn <command> [option]
+:::
+:::  -h,  help             Show this help dialog
+:::  -u,  uninstall        Uninstall pivpn from your system!
+:::  -bk, backup           Backup VPN configs and user profiles
+```
 
 ## My ISP doesn't give me a static external IP address and my server IP address keeps changing!
 
@@ -136,7 +166,7 @@ $ curl -s https://checkip.amazonaws.com
 
 Confirmed: `192.0.2.48` is the same as the content of the `pivpnHOST` variable.
 
-If the IP is different, then update the IP using the [OpenVPN](https://github.com/pivpn/pivpn/wiki/OpenVPN#how-do-i-change-the-public-ipdns-name-of-the-pivpn-after-the-install) or [WireGuard](https://github.com/pivpn/pivpn/wiki/WireGuard#how-do-i-change-the-public-ipdns-name-of-the-pivpn-after-the-install) guide. If your IP changes frequently, the norm on most home connections, consider using a [Dynamic DNS](https://github.com/pivpn/pivpn/wiki#my-isp-doesnt-give-me-a-static-external-ip-address-so-my-servers-ip-address-keeps-changing).
+If the IP is different, then update the IP using the [OpenVPN](openvpn.md#changing-the-public-ipdns) or [WireGuard](wireguard.md#changing-the-public-ipdns) guide. If your IP changes frequently, the norm on most home connections, consider using a [Dynamic DNS](faq.md#my-isp-doesnt-give-me-a-static-external-ip-address-and-my-server-ip-address-keeps-changing).
 
 If you are already using a DDNS, and thus `pivpnHOST` contains your domain name, use `dig +short yourdomain.example.com` to check whether the returned IP matches `curl -s https://checkip.amazonaws.com`.
 
@@ -180,11 +210,15 @@ listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
 6. Press CTRL-C to stop the capture
 7. Exit the root shell: `exit`
 
+### Tweaking MTU
+
+On some networks, you may see that packets are being exchanged, data transfer occurs in both directions (Rx/Tx) as seen in the WireGuard app or `pivpn -c`, but can't browse the web or connect to servers in the LAN. This is sometimes caused by improper [MTU](https://en.wikipedia.org/wiki/Maximum_transmission_unit). To attempt a fix, start from the default MTU of 1420 and lower the value by 10 until you find the highest that works. The MTU can be changed by adding/editing the `MTU = something` line of the `[Interface]` section of the client `.conf` file, or by changing the MTU section in the WireGuard app on Android and iOS.
+
 ### What to do if I see no packets?
 
 - If you set up PiVPN with ethernet and later switched to wifi, you will have a different IP. Easiest way to fix is to reinstall and pick the new network interface.
 - Check if your ISP uses Carrier-grade NAT (check online). With CGNAT, your router gets a private IP, making port forwarding ineffective. This is mostly the norm if your router connects via 4G/LTE. If that's the case, you need to ask the ISP for a public IP.
-- If you see packets coming, but no response from the Pi, it may indicate routing issues, attempts to block the connection (on either side), or poor connectivity. In all cases, try to connect from a different network.
+- If you see packets coming to the Pi, but no response to the smartphone, it may indicate routing issues, attempts to block the connection (on either side), poor connectivity. In all cases, try to connect from a different network. It may also indicate misconfigured keys though this shouldn't happen with the official scripts.
 - If you have multiple chained routers, then you need to configure multiple port forwardings. Example: `(192.0.2.48) ISP router (192.168.1.1)` ---> `(192.168.1.2) Own router (192.168.23.1)` ---> `(192.168.23.211) Raspberry Pi`. Given that, on the ISP router port forward 1194 udp to 192.168.1.2 and on your own router port forward 1194 UDP to 192.168.23.211.
 - You may have misconfigured firewall rules on your Pi, open an issue and add the output of `sudo iptables -S` and `sudo iptables -t nat -S`.
 

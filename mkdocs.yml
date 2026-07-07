@@ -27,6 +27,7 @@ nav:
   - projects.md
   - Guides:
     - Dynamic DNS: guides/dynamic-dns.md
+    - User Data: guides/user-data.md
 
 extra:
   social:
@@ -36,5 +37,5 @@ extra:
       link: https://www.reddit.com/r/pivpn/
     - icon: fontawesome/solid/globe
       link: https://pivpn.io
-    - icon: fontawesome/solid/heartbeat
+    - icon: fontawesome/solid/heart-pulse
       link: https://status.pivpn.io

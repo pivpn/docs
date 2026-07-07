@@ -1,8 +1,6 @@
 ![Pivpn Banner](docs/img/pivpnbanner.png)
 
-[![Build Status](https://travis-ci.com/pivpn/docs.svg?branch=master)](https://travis-ci.com/pivpn/docs)
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
-
+[![Deploy static content to Pages](https://github.com/pivpn/docs/actions/workflows/static.yml/badge.svg)](https://github.com/pivpn/docs/actions/workflows/static.yml)
 
 ## Documentation & User Guides
 
@@ -14,7 +12,6 @@ PiVPN Documentation is powered by [MKDocs-Material](https://squidfunk.github.io/
 
 Please refer to [MKDocs Documentation](https://www.mkdocs.org/user-guide/) and [MKDocs-Material Documentation](https://squidfunk.github.io/mkdocs-material/) for more detailed information for information on how to install or more detailed documentation
 
-
 To add a new link on the navigation panel you need to edit the `mkdocs.yml` file in the root of the repo. There is a guide for building the navbar at [mkdocs wiki](https://www.mkdocs.org/user-guide/configuration/#nav)
 
 To add a new document
@@ -23,6 +20,7 @@ To add a new document
 - Create the file using a URL friendly filename.
     EG. `docs/url-friendly.md` or `docs/guides/url-friendly.md`
 - Edit your document using Markdown, there are loads of resources available for the correct syntax.
+
 
 ### Test your changes
 
@@ -41,4 +39,3 @@ When working on this repo, it is advised that you review your changes locally be
 ### Deployment
 
 Once changes are merged to master branch, CI Pipeline will run and take care of everything.
-It may take up to 24h until changes are visible on live documentation website.
