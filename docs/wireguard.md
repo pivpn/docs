@@ -90,6 +90,10 @@ wg-quick up whatever
 ```
 Run `wg-quick down whatever` to deactivate the tunnel.
 
+To add it to Network Manager `nmcli c import type wireguard file /etc/wireguard/whatever.conf`.
+
+If you want to set it so it doesn't automatically connect to the VPN on startup type `nmcli connection edit whatever` to open the interface, type `set connection.autoconnect no` then type `save` to save and type `quit` to go back to your shell.
+
 ### Android/iOS
 
 Run `pivpn -qr` on the PiVPN server to generate a QR code of your config, download the Wireguard app [Android link](https://play.google.com/store/apps/details?id=com.wireguard.android) / [iOS link](https://apps.apple.com/it/app/wireguard/id1441195209), click the '+' sign and scan the QR code with your phone's camera. Flip the switch to activate the tunnel.
