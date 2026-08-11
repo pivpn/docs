@@ -14,8 +14,8 @@ summary: Frequently asked questions
 ### PiVPN Supports the following systems
 
   * Raspbian and Raspberry PI OS
-    * Bullseye
     * Bookworm
+    * Trixie
   * Ubuntu Server
     * Focal Fossa (20.04)
     * Jammy Jellyfish (22.04)
